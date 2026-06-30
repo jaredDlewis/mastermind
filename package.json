@@ -1,0 +1,23 @@
+{
+  "name": "mastermind",
+  "version": "1.0.0",
+  "description": "",
+  "main": "mastermind.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node mastermind.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaredDlewis/mastermind.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jaredDlewis/mastermind/issues"
+  },
+  "homepage": "https://github.com/jaredDlewis/mastermind#readme",
+  "dependencies": {
+    "prompt-sync": "^4.2.0"
+  }
+}
