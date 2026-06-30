@@ -14,7 +14,7 @@ for (let i = 0; i < 4; i++) {
   answer[i] = colors[Math.floor(Math.random() * 6)]
 }
 
-console.log(answer)
+// console.log(answer)
 // What is your guess?(format: XXXX)GGBG
 // 1 right color right place
 // 3 right color wrong place
@@ -51,6 +51,7 @@ function checkForValidAnswers(userGuess, answer) {
 
 const guessesAllowed = 10;
 
+console.log('Possible colors: Red(R), Green(G), Blue(B), Yellow(Y), Cyan(C), Purple(P)')
 for (let i = 0; i < guessesAllowed; i++) {
   const userGuess = prompt("What is your guess? (format: XXXX) ");
   const checkResult = checkForValidAnswers(userGuess, [...answer]);
