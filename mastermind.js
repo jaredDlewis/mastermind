@@ -14,12 +14,9 @@ for (let i = 0; i < 4; i++) {
   answer[i] = colors[Math.floor(Math.random() * 6)]
 }
 
-// console.log(answer)
 // What is your guess?(format: XXXX)GGBG
 // 1 right color right place
 // 3 right color wrong place
-
-// const answer = ["R", "C", "G", "G"];
 
 function checkForValidAnswers(userGuess, answer) {
   let whiteDot = 0;
@@ -61,3 +58,4 @@ for (let i = 0; i < guessesAllowed; i++) {
     break;
   }
 }
+console.log(`You're out of guesses! The answer was ${answer.join('')}`);
