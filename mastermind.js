@@ -1,5 +1,3 @@
-const { black } = require("colors");
-
 const prompt = require("prompt-sync")();
 
 // 6 possible colors
@@ -9,7 +7,9 @@ const prompt = require("prompt-sync")();
 
 // Red(R), Green(G), Blue(B), Yellow(Y), Cyan(C), Purple(P)
 
-const userGuess = prompt("What is your guess?(format: XXXX)");
+// What is your guess?(format: XXXX)GGBG
+// 1 right color right place
+// 3 right color wrong place
 
 const answer = ["R", "C", "G", "G"];
 
@@ -18,8 +18,11 @@ function checkForValidAnswers(userGuess, answer) {
   let blackDot = 0;
   const userGuessArr = userGuess.split("");
 
+  // black check first to preserve indexes. remove cause we don't want to double count
   userGuessArr.forEach((value, index) => {
     if (value == answer[index]) {
+      console.log(`Black ${answer[index]} at index ${index}`);
+      userGuessArr[index] = "";
       answer[index] = "";
       blackDot++;
     }
@@ -27,7 +30,8 @@ function checkForValidAnswers(userGuess, answer) {
 
   userGuessArr.forEach((value, index) => {
     if (answer.includes(value)) {
-      answer[index] = "";
+      console.log(`White at index ${ index }: ${answer}, ${userGuess}`);
+      answer[answer.indexOf(value)] = "";
       whiteDot++;
     }
   });
@@ -35,4 +39,10 @@ function checkForValidAnswers(userGuess, answer) {
   return { whiteDot, blackDot };
 }
 
-console.log(checkForValidAnswers(userGuess, answer));
+const guessesAllowed = 10;
+
+for (let i = 0; i < guessesAllowed; i++) {
+  const userGuess = prompt("What is your guess? (format: XXXX) ");
+  const checkResult = checkForValidAnswers(userGuess, [...answer]);
+  console.log(`${checkResult.blackDot} right color right place\n${checkResult.whiteDot} right color wrong place\n`);
+}
