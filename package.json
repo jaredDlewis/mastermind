@@ -5,7 +5,8 @@
   "main": "mastermind.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node mastermind.js"
+    "start": "node mastermind.js",
+    "dev": "nodemon mastermind.js"
   },
   "repository": {
     "type": "git",
